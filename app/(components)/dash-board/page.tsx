@@ -12,6 +12,7 @@ import { Modal } from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEdit , faTrash ,faEye} from '@fortawesome/free-solid-svg-icons';
 import ProductDetails from './view-product/[id]/page';
+import Swal from 'sweetalert2';
 
 
 interface Props {
@@ -58,6 +59,12 @@ const Dashboard = () => {
         console.log(response);
         const updatedData = data.filter((product) => product.id !== id);
         setData(updatedData); 
+        Swal.fire({
+          title: 'Success!',
+          icon: 'success',
+          timer: 3000, 
+        });
+
       })
       .catch((error) => {
         console.error(error);
