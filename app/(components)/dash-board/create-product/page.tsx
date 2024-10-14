@@ -4,18 +4,17 @@ import axios from 'axios';
 import React, { useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
-import Modal from 'react-bootstrap/Modal';
 import classes from './create-product.module.css'
 
-interface CreateProductProps {
-  show: boolean;
-  handleClose: () => void;
-}
+// interface CreateProductProps {
+//   show: boolean;
+//   handleClose: () => void;
+// }
 
- function CreateProduct({ show, handleClose }: CreateProductProps) {
-  const [image, setImage] = useState('');
-  const [name, setName] = useState('');
-  const [price, setPrice] = useState('');
+const CreateProduct = () => {
+  const [image, setImage] = useState<string>('');
+  const [name, setName] = useState<string>('');
+  const [price, setPrice] = useState<string>('');
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [errors, setErrors] = useState({
     name: '',
@@ -87,11 +86,11 @@ interface CreateProductProps {
   };
 
   return (
-    <Modal show={show} onHide={handleClose}>
-      <Modal.Header closeButton>
-        <Modal.Title>Create Product</Modal.Title>
-      </Modal.Header>
-      <Modal.Body>
+    // <Modal show={show} onHide={handleClose}>
+    //   <Modal.Header closeButton>
+    //     <Modal.Title>Create Product</Modal.Title>
+    //   </Modal.Header>
+    //   <Modal.Body>
         <Form onSubmit={handleSubmit}>
           <Form.Group className="mb-3" controlId="formName">
             <Form.Label>Name</Form.Label>
@@ -133,17 +132,18 @@ interface CreateProductProps {
               {errors.image}
             </Form.Control.Feedback>
           </Form.Group>
-        </Form>
-      </Modal.Body>
-      <Modal.Footer className={classes.groupButtons}>
-        <Button variant="secondary" onClick={handleClose}>
+
+          <div className={classes.groupButtons}> 
+          {/* <Button variant="secondary" >
           Close
-        </Button>
+        </Button> */}
         <Button variant="primary" onClick={handleSubmit} disabled={isLoading}>
           {isLoading ? 'Loading ...' : 'Submit'}
         </Button>
-      </Modal.Footer>
-    </Modal>
+          </div>
+         
+        </Form>
+      
   );
 }
 export default CreateProduct

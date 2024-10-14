@@ -80,7 +80,7 @@ const Dashboard = () => {
     <>
       <Button className={classes.addButton} onClick={handleShow}>Add Product</Button>
       
-      <CreateProduct show={show} handleClose={handleClose} /> 
+      {/* <CreateProduct show={show} handleClose={handleClose} />  */}
       <Table striped bordered hover className={classes.table}>
         <thead>
           <tr >
@@ -111,6 +111,15 @@ const Dashboard = () => {
           ))}
         </tbody>
       </Table>
+      <Modal show={show} onHide={handleClose}>
+        <Modal.Header closeButton>
+          <Modal.Title>Edit Product</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+        <CreateProduct   />
+        </Modal.Body>
+      </Modal>
+      
       <Modal show={showEditModal} onHide={handleCloseEditModal}>
         <Modal.Header closeButton>
           <Modal.Title>Edit Product</Modal.Title>
