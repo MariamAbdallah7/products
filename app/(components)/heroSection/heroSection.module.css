@@ -1,0 +1,107 @@
+    .firstImage {
+        background-image: url('../../../assets/heroSection1.png');
+
+    }
+
+    .secondImage {
+        background-image: url('../../../assets/heroSection2.png');
+    }
+
+    .container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
+
+
+    .firstImage,
+    .secondImage {
+        background-size: cover;
+        background-position: center;
+        width: 49.5%;
+        height: 600px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        font-size: 20px;
+        margin-bottom: 20px;
+        position: relative;
+    }
+
+    @media (max-width: 768px) {
+
+        .firstImage,
+        .secondImage {
+            width: 100%;
+            margin-bottom: 10px;
+        }
+    }
+
+    .firstImageText1 {
+        position: absolute;
+        top: 350px;
+        left: 76.39px;
+        color: #000000;
+        font-size: 32px;
+        line-height: 44.8px !important;
+        font-weight: 700 !important;
+    }
+
+    .firstImageText2 {
+        position: absolute;
+        top: 450px;
+        left: 76.39px;
+        color: #7E7E7E;
+        font-size: 18px;
+        font-weight: 500;
+    }
+
+    .firstImageButton {
+        position: absolute;
+        top: 530px;
+        left: 76.39px;
+        background-color: #2EBB77;
+        border: none !important;
+        border-radius: 12px;
+    }
+
+    .firstImageButton:hover {
+        background-color: #189e5d;
+
+    }
+
+
+
+
+    .secondImageText1 {
+        position: absolute;
+        top: 350px;
+        left: 76px;
+        color: #000000;
+        font-size: 32px;
+        line-height: 44.8px;
+        font-weight: 700;
+    }
+
+    .secondImageText2 {
+        position: absolute;
+        top: 450px;
+        left: 76px;
+        color: #7E7E7E;
+        font-size: 18px;
+        font-weight: 500;
+    }
+
+    .secondImageButton {
+        position: absolute;
+        top: 530px;
+        left: 76px;
+        background-color: #2EBB77;
+        border: none;
+        border-radius: 12px;
+    }
+
+    .secondImageButton:hover {
+        background-color: #189e5d;
+    }
