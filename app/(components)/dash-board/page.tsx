@@ -17,10 +17,10 @@ import Swal from 'sweetalert2';
 
 interface Props {
   data: {
-    id: any;
-    image: any;
-    name: String;
-    price: String;
+    id: string;
+    image: string;
+    name: string;
+    price: string;
   }[];
 }
 
@@ -28,13 +28,13 @@ const Dashboard = () => {
   const [showEditModal, setShowEditModal] = useState(false);
   const [showViewModal, setShowViewModal] = useState(false);
 
-  const [productId, setProductId] = useState(null);
+  const [productId, setProductId] = useState<string | null>(null);
 
-  const handleEditClick = (id:any) => {
+  const handleEditClick = (id:string) => {
     setProductId(id);
     setShowEditModal(true);
   };
-  const handleViewClick = (id:any) => {
+  const handleViewClick = (id:string) => {
     setProductId(id);
     setShowViewModal(true);
   };
@@ -52,7 +52,7 @@ const Dashboard = () => {
     fetchData();
   }, []);
 
-  const deleteProduct = (id: any) => {
+  const deleteProduct = (id: string) => {
     axios
       .delete(`https://670825ed8e86a8d9e42e355b.mockapi.io/products/featuredProducts/${id}`)
       .then((response) => {
@@ -92,7 +92,7 @@ const Dashboard = () => {
           </tr>
         </thead>
         <tbody>
-          {data.map((product, index) => (
+          {data.map((product) => (
             <tr key={product.id}>
               <td>{product.id}</td>
               <td>
@@ -101,7 +101,6 @@ const Dashboard = () => {
               <td>{product.name}</td>
               <td>{product.price}</td>
               <td >
-                {/* <Button type="submit"  href={`/dash-board/update-product/${product.id}`}>Edit</Button> */}
                 <Button className={classes.actionsButton} onClick={() => handleEditClick(product.id)}><FontAwesomeIcon icon={faEdit} /></Button>
                 <Button className={classes.viewButton} onClick={() => handleViewClick(product.id)}><FontAwesomeIcon icon={faEye} /></Button>
                 <Button className={classes.deleteButton} onClick={() => deleteProduct(product.id)}>

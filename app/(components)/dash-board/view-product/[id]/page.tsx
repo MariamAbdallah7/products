@@ -1,9 +1,8 @@
 "use client"
 
 import axios from 'axios';
-import { useRouter } from 'next/navigation'
 import React, { useEffect, useState } from 'react'
-import { Button, Form, Modal } from 'react-bootstrap';
+import { Form, Modal } from 'react-bootstrap';
 
 
 const ProductDetails = ({ params }: { params: { id: string } }) => {
@@ -12,34 +11,7 @@ const ProductDetails = ({ params }: { params: { id: string } }) => {
     const [image, setImage] = useState('');
     const [name, setName] = useState('');
     const [price, setPrice] = useState('');
-    const [isLoading, setIsLoading] = useState<boolean>(false);
-    const router = useRouter();
-
-    const handleSubmit = async (e: any) => {
-        e.preventDefault();
-        setIsLoading(true);
-
-        try {
-            const res = await fetch(`https://670825ed8e86a8d9e42e355b.mockapi.io/products/featuredProducts/${id}`, {
-                method: 'PUT', 
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify({ image, name, price })
-            });
-
-            if (res.ok) {
-                console.log('Product updated successfully');
-                window.location.reload()
-            } else {
-                console.log('Failed to update product');
-            }
-        } catch (e) {
-            console.error('Error during update:', e);
-        } finally {
-            setIsLoading(false);
-        }
-    }
+    
 
     useEffect(() => {
         getData();
@@ -64,7 +36,7 @@ const ProductDetails = ({ params }: { params: { id: string } }) => {
         <>
         
        
-<Form onSubmit={handleSubmit}>
+<Form >
           <Form.Group className="mb-3" controlId="formName">
             <Form.Label>Name</Form.Label>
             <Form.Control

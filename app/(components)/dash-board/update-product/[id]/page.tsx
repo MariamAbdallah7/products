@@ -1,7 +1,6 @@
 "use client"
 
 import axios from 'axios';
-import { useRouter } from 'next/navigation'
 import React, { useEffect, useState } from 'react'
 import { Button, Form, Modal } from 'react-bootstrap';
 
@@ -13,9 +12,8 @@ const UpdateProductPage = ({ params }: { params: { id: string } }) => {
     const [name, setName] = useState('');
     const [price, setPrice] = useState('');
     const [isLoading, setIsLoading] = useState<boolean>(false);
-    const router = useRouter();
 
-    const handleSubmit = async (e: any) => {
+    const handleSubmit = async (e: React.SyntheticEvent) => {
         e.preventDefault();
         setIsLoading(true);
 

@@ -1,7 +1,6 @@
 'use client';
 
 import axios from 'axios';
-import { useRouter } from 'next/navigation';
 import React, { useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
@@ -13,7 +12,7 @@ interface CreateProductProps {
   handleClose: () => void;
 }
 
-export default function CreateProduct({ show, handleClose }: CreateProductProps) {
+ function CreateProduct({ show, handleClose }: CreateProductProps) {
   const [image, setImage] = useState('');
   const [name, setName] = useState('');
   const [price, setPrice] = useState('');
@@ -23,9 +22,8 @@ export default function CreateProduct({ show, handleClose }: CreateProductProps)
     price: '',
     image: '',
   });
-  const router = useRouter();
 
-  const handleSubmit = async (e: any) => {
+  const handleSubmit = async (e: React.SyntheticEvent) => {
     e.preventDefault();
 
     setErrors({
@@ -73,17 +71,17 @@ export default function CreateProduct({ show, handleClose }: CreateProductProps)
     setIsLoading(false);
   };
 
-  const handleNameChange = (e: any) => {
+  const handleNameChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setName(e.target.value);
     if (errors.name) setErrors(prev => ({ ...prev, name: '' }));
   };
 
-  const handlePriceChange = (e: any) => {
+  const handlePriceChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setPrice(e.target.value);
     if (errors.price) setErrors(prev => ({ ...prev, price: '' }));
   };
 
-  const handleImageChange = (e: any) => {
+  const handleImageChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setImage(e.target.value);
     if (errors.image) setErrors(prev => ({ ...prev, image: '' }));
   };
@@ -148,3 +146,4 @@ export default function CreateProduct({ show, handleClose }: CreateProductProps)
     </Modal>
   );
 }
+export default CreateProduct

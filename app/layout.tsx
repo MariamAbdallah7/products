@@ -3,10 +3,8 @@ import localFont from "next/font/local";
 import "./globals.css";
 import TopNav from "./(components)/top-navbar/topNav";
 import 'bootstrap/dist/css/bootstrap.min.css';
-// import '@fortawesome/fontawesome-free'
 import '@fortawesome/fontawesome-free/css/all.css';
 import MainNavBar from "./(components)/navBar/navBar";
-import Container from 'react-bootstrap/Container';
 
 
 const geistSans = localFont({

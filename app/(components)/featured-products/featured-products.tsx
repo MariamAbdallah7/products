@@ -12,10 +12,10 @@ async function fetchdetails() {
   }
 }
 interface Props {
-  id: any;
-  image: any;
-  name: String;
-  price: String;
+  id: string;
+  image: string;
+  name: string;
+  price: string;
 }
 
 export default async function FeaturedProducts() {
