@@ -1,0 +1,30 @@
+.container {
+    display: flex;
+    flex-wrap: wrap; 
+    justify-content: space-between; 
+    padding-left: 80px !important; 
+    padding-right: 80px !important; 
+    height: auto;
+    padding-top: 50px;
+    padding-bottom: 50px;
+}
+
+.firstDiv{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between; 
+}
+.firsText1{
+    font-weight: 700 ;
+    font-size: 24px;
+    line-height: 33.6px;
+    color: #000000;
+}
+.firsText2{
+    font-weight: 500 ;
+    font-size: 16px;
+    line-height: 28.8px;
+    color: #7E7E7E;
+    height: 49.8px;
+    width: 232.72px;
+}
